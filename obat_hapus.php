@@ -1,9 +1,9 @@
 <?php
 session_start();
 include('includes/config.php');
-if(isset($_GET['kode_buku'])){
-	$id	= $_GET['kode_buku'];
-	$mySql	= "DELETE FROM data_buku WHERE kode_buku='$id'";
+if(isset($_GET['kode_obat'])){
+	$id	= $_GET['kode_obat'];
+	$mySql	= "DELETE FROM data_obat WHERE kode_obat='$id'";
 	$myQry	= mysqli_query($koneksidb, $mySql);
 	echo "<script type='text/javascript'>
 			alert('Data berhasil dihapus.'); 

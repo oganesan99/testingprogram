@@ -12,7 +12,7 @@ include('includes/config.php');
 		<!-- Bootstrap CSS -->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-		<title>Perpustakaan</title>
+		<title>Apotek</title>
 
 		<style>
 			nav a {
@@ -29,7 +29,7 @@ include('includes/config.php');
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 		<nav class="navbar navbar-expand-lg bg-dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="/">Home</a>
+				<a class="navbar-brand" href="/apotek/">Home</a>
 				<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -47,47 +47,47 @@ include('includes/config.php');
 		</nav>
 		<div class="container mt-3">
 			<div class="d-flex justify-content-between">
-				<a href="buku_formadd.php" type="button" class="btn btn-primary align-self-center" style="height: 40px !important; width: 70px !important; ">Add </a>
-				<h1 h1 style="text-align:center">Data Buku Perpustakaan</h1>
+				<a href="obat_formadd.php" type="button" class="btn btn-primary align-self-center" style="height: 40px !important; width: 70px !important; ">Add </a>
+				<h1 h1 style="text-align:center">Data Apotek</h1>
 				<div class=""></div>
 			</div>
 			<table class="table mt-3" id="myTable">
 				<thead>
 					<tr>
 						<th scope="col">#</th>
-						<th scope="col">Kode Buku</th>
-						<th scope="col">Judul Buku</th>
-						<th scope="col">Pengarang</th>
-						<th scope="col">Jenis Buku</th>
+						<th scope="col">Kode Obat</th>
+						<th scope="col">Nama Obat</th>
+						<th scope="col">Golongan</th>
 						<th scope="col">Stok</th>
+						<th scope="col">Harga</th>
 						<th scope="col">Action</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php 
 					$nomor = 0;
-					$sqlperpustakaan = "SELECT * FROM data_buku ORDER BY kode_buku ASC";
-					$queryperpustakaan = mysqli_query($koneksidb,$sqlperpustakaan);
-					while ($result = mysqli_fetch_array($queryperpustakaan)){
+					$sqlapotek = "SELECT * FROM data_obat ORDER BY kode_obat ASC";
+					$queryapotek = mysqli_query($koneksidb,$sqlapotek);
+					while ($result = mysqli_fetch_array($queryapotek)){
 					$nomor++;
 					?>
 					<tr>
 						<td><?php echo htmlentities($nomor);?></td>
-						<td><?php echo htmlentities($result['kode_buku']);?></td>
-						<td><?php echo htmlentities($result['judul_buku']);?></td>
-						<td><?php echo htmlentities($result['pengarang']);?></td>
-						<td><?php echo htmlentities($result['jenis_buku']);?></td>
+						<td><?php echo htmlentities($result['kode_obat']);?></td>
+						<td><?php echo htmlentities($result['nama_obat']);?></td>
+						<td><?php echo htmlentities($result['golongan']);?></td>
 						<td><?php echo htmlentities($result['stok']);?></td>
+						<td><?php echo htmlentities($result['harga']);?></td>
 						<td class='text-left'>
-							<a class='btn btn-warning btn-sm' data-bs-toggle='modal' data-bs-target='#konfirmasi_update' data-href="buku_formedit.php?kode_buku=<?php echo $result['kode_buku'];?>"> Update </a>
-							<a class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#konfirmasi_hapus' data-href="buku_hapus.php?kode_buku=<?php echo $result['kode_buku'];?>">Delete</a>
+							<a class='btn btn-warning btn-sm' data-bs-toggle='modal' data-bs-target='#konfirmasi_update' data-href="obat_formedit.php?kode_obat=<?php echo $result['kode_obat'];?>"> Update </a>
+							<a class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#konfirmasi_hapus' data-href="obat_hapus.php?kode_obat=<?php echo $result['kode_obat'];?>">Delete</a>
 
 							<!-- Modal update -->
 							<div class="modal fade" id="konfirmasi_update" tabindex="-1" aria-labelledby="myModalUpdate" aria-hidden="true">
 								<div class="modal-dialog">
 									<div class="modal-content">
 										<div class="modal-body">
-											<p>Apakah Anda yakin ingin mengubah data buku ini?</p>
+											<p>Apakah Anda yakin ingin mengubah data obat ini?</p>
 										</div>
 										<div class="modal-footer">
 											<a class="btn btn-primary btn-sm btn-ya"> Ya</a>
@@ -101,7 +101,7 @@ include('includes/config.php');
 								<div class="modal-dialog">
 									<div class="modal-content">
 										<div class="modal-body">
-											<p>Apakah Anda yakin ingin menghapus data buku ini?</p>
+											<p>Apakah Anda yakin ingin menghapus data obat ini?</p>
 										</div>
 										<div class="modal-footer">
 											<a class="btn btn-primary btn-sm btn-ya"> Ya</a>

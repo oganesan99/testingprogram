@@ -2,7 +2,7 @@
 $myHost	= "localhost";
 $myUser	= "root";
 $myPass	= "";
-$myDbs	= "perpustakaan";
+$myDbs	= "apotek";
 $koneksidb = mysqli_connect( $myHost, $myUser, $myPass, $myDbs);
 if (! $koneksidb) {
   echo "Failed Connection !";
