@@ -66,7 +66,7 @@ include('includes/config.php');
 				<tbody>
 					<?php 
 					$nomor = 0;
-					$sqlperpustakaan = "SELECT * FROM data_buku ORDER BY judul_buku ASC";
+					$sqlperpustakaan = "SELECT * FROM data_buku ORDER BY kode_buku ASC";
 					$queryperpustakaan = mysqli_query($koneksidb,$sqlperpustakaan);
 					while ($result = mysqli_fetch_array($queryperpustakaan)){
 					$nomor++;
@@ -137,4 +137,4 @@ include('includes/config.php');
 			});
 		</script>
 	</body>
-</html>
+</html> 
